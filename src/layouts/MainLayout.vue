@@ -2,6 +2,9 @@
   <q-layout view="lHh Lpr lFf">
     <MainHeader />
 
+    <q-list>
+      <q-item-label header> Essential Links </q-item-label>
+    </q-list>
 
     <q-page-container>
       <router-view />
