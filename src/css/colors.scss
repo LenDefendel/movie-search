@@ -1,0 +1,31 @@
+:root {
+  --black: #000;
+  --white: #fff;
+  --grey-2: #eeeeee;
+  --grey-3: #cecece;
+  --grey-4: #aaa;
+  --grey-5: #666666;
+}
+
+// Добавляем кастомные цвета в цветовую палитру фреймворка Quasar.
+// Теперь мы можем использовать эти цвета в разметке.
+
+@each $color-name
+  in (
+    //
+    'black',
+    'white',
+    'grey-2',
+    'grey-3',
+    'grey-4',
+    'grey-5'
+  )
+{
+  .text-#{$color-name} {
+    color: var(--#{$color-name}) !important;
+  }
+
+  .bg-#{$color-name} {
+    background: var(--#{$color-name}) !important;
+  }
+}
