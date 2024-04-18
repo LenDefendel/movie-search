@@ -1,10 +1,5 @@
 import { defineBoot } from '#q-app/wrappers';
 import axios, { type AxiosInstance } from 'axios';
-import { getCard } from 'src/api/api';
-import { search } from 'src/api/api';
-void getCard('tt0316654');
-void search('men', 2);
-
 declare module 'vue' {
   interface ComponentCustomProperties {
     $axios: AxiosInstance;
