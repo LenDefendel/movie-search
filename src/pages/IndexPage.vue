@@ -1,19 +1,12 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <q-avatar class="gt-xs">
-      <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-    </q-avatar>
-
-    <q-space />
-
     <q-input
-      dark
       dense
-      standout
+      borderless
       v-model="text"
-      input-class="text-right"
-      class="q-ml-md"
+      input-class="search-input"
       :debounce="500"
+      placeholder="Search movie"
     >
       <template v-slot:append>
         <q-icon v-if="text === ''" name="search" />
