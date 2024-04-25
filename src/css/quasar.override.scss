@@ -1,0 +1,10 @@
+.q-field__inner {
+  border: 2px solid var(--grey-2);
+  border-radius: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.q-field__inner:hover {
+  border: 2px solid var(--grey-3);
+  border-radius: 4px;
+}
