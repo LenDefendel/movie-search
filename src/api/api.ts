@@ -37,6 +37,10 @@ export async function getCard(id: imdbID) {
 }
 
 export async function searchMovieByString(str: string, page: number = 1) {
+  if (!str || str.length === 0) {
+    str = 'spider';
+  }
+
   return axios
     .get('http://www.omdbapi.com/', {
       params: {
