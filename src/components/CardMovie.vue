@@ -1,7 +1,10 @@
 <template>
   <div class="card">
-    <span>{{ props.card.Title }}</span>
-    <img :src="props.card.Poster" alt="" />
+    <div class="title">
+      <span>{{ props.card.Title }}</span>
+    </div>
+    <img :src="props.card.Poster" alt="" class="movie-img" />
+    <span class="year">{{ props.card.Year }}</span>
   </div>
 </template>
 
