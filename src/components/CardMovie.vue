@@ -15,9 +15,29 @@ const props = defineProps<{
 
 <style scoped>
 .card {
-  margin: 20px;
-  border: 2px solid var(--black);
-  width: 150px;
-  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 45px;
+  /* border: 2px solid var(--black); */
+  width: 300px;
+  height: 500px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.movie-img {
+  width: 280px;
+  height: 420px;
+}
+
+.year {
+  font-size: 18px;
 }
 </style>
