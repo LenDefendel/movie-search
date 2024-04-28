@@ -1,11 +1,11 @@
 <template>
-  <div class="card">
-    <div class="title">
+  <a class="card" href="#">
+    <div class="title" :title="props.card.Title">
       <span>{{ props.card.Title }}</span>
     </div>
     <img :src="props.card.Poster" alt="" class="movie-img" />
     <span class="year">{{ props.card.Year }}</span>
-  </div>
+  </a>
 </template>
 
 <script setup lang="ts">
@@ -18,21 +18,25 @@ const props = defineProps<{
 
 <style scoped>
 .card {
+  text-decoration: none;
+  color: var(--black);
   display: flex;
+  justify-content: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 45px;
-  /* border: 2px solid var(--black); */
-  width: 300px;
+  width: 320px;
   height: 500px;
+  border: 2px solid var(--grey-2);
 }
 
 .title {
-  display: flex;
-  justify-content: center;
   padding: 10px;
   font-size: 16px;
+  white-space: nowrap; /* Запрет переноса строк */
+  overflow: hidden; /* Скрытие выходящего за границы текста */
+  text-overflow: ellipsis; /* Добавление "..." */
+  max-width: 100%;
 }
 
 .movie-img {
@@ -42,5 +46,6 @@ const props = defineProps<{
 
 .year {
   font-size: 18px;
+  padding: 4px;
 }
 </style>
