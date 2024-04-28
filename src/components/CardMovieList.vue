@@ -1,8 +1,6 @@
 <template>
-  <div class="card-main-container">
-    <div class="card-main">
-      <CardMovie v-for="card in props.cards" :key="card.imdbID" :card="card" />
-    </div>
+  <div class="card-main">
+    <CardMovie v-for="card in props.cards" :key="card.imdbID" :card="card" />
   </div>
 </template>
 
@@ -20,15 +18,14 @@ const props = defineProps<{
 </script>
 
 <style scoped>
-.card-main-container {
-  display: flex;
-  justify-content: center;
-  /* flex-wrap: wrap; */
-}
 .card-main {
-  /* gap: 30px calc(10rem - 10px); */
-  display: flex;
-  justify-content: start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-rows: repeat(auto-fill, 480px);
+  justify-content: center;
+  column-gap: 60px;
+  row-gap: 60px;
+  margin: 50px;
   flex-wrap: wrap;
   max-width: 100%;
   max-height: 100%;
