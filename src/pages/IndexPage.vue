@@ -2,15 +2,19 @@
   <q-page>
     <q-input
       dense
+      item-aligned
       borderless
       v-model="text"
       input-class="search-input"
       :debounce="1_000"
       placeholder="Search movie"
     >
-      <template v-slot:append>
-        <q-icon v-if="text === ''" name="search" />
-        <q-icon v-else name="clear" class="cursor-pointer" @click="text = ''" />
+      <template #prepend>
+        <q-icon name="search" />
+      </template>
+
+      <template #append>
+        <q-icon v-if="text" name="clear" class="cursor-pointer" @click="text = ''" />
       </template>
     </q-input>
     <CardMovieList :cards="movieList" />
