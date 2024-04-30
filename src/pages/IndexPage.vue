@@ -17,7 +17,7 @@
         <q-icon v-if="text" name="clear" class="cursor-pointer" @click="text = ''" />
       </template>
     </q-input>
-    <CardMovieList :cards="movieList" />
+    <CardMovieList :is-load="isLoadMovie" :cards="movieList" :error-find="errorFindMovie" />
   </q-page>
 </template>
 
@@ -34,6 +34,8 @@ import CardMovieList from 'src/components/CardMovieList.vue';
 // Data
 const text = ref('');
 const movieList = ref<IMovieShortInfo[]>([]);
+const isLoadMovie = ref(false);
+const errorFindMovie = ref(false);
 
 // Watch
 watch(
@@ -51,13 +53,20 @@ watch(
 
 // Methods
 async function searchMovieByString(id: string) {
+  errorFindMovie.value = false;
+  isLoadMovie.value = true;
   return await api
     .searchMovieByString(id)
     .then((result) => {
       movieList.value = result.Search;
     })
     .catch((error) => {
+      movieList.value = error.Search;
+      errorFindMovie.value = true;
       console.warn(error);
+    })
+    .finally(() => {
+      isLoadMovie.value = false;
     });
 }
 </script>

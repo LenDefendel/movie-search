@@ -1,6 +1,8 @@
 <template>
   <div class="card-main">
+    <div v-if="isLoad">загрузка</div>
     <CardMovie v-for="card in props.cards" :key="card.imdbID" :card="card" />
+    <div v-if="errorFind">фильм не найден</div>
   </div>
 </template>
 
@@ -12,7 +14,9 @@ import CardMovie from 'src/components/CardMovie.vue';
 
 // Data
 const props = defineProps<{
+  isLoad: boolean;
   cards: Array<IMovieShortInfo>;
+  errorFind: boolean;
 }>();
 //
 </script>
