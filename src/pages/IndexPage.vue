@@ -14,7 +14,9 @@
       </template>
 
       <template #append>
-        <q-icon v-if="text" name="clear" class="cursor-pointer" @click="text = ''" />
+        <q-btn flat v-if="text" class="cursor-pointer" @click="text = ''">
+          <q-icon name="clear" />
+        </q-btn>
       </template>
     </q-input>
     <CardMovieList :is-load="isLoadMovie" :cards="movieList" />
