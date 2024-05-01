@@ -52,7 +52,7 @@ export async function searchMovieByString(str: string, page: number = 1) {
     .then((response) => response.data)
     .then((data: IMovieSearchResponse | IMovieSearchError) => {
       if (data.Response === 'False') {
-        throw new Error(data.Error);
+        throw new Error(data.Error, { cause: data.Error });
       }
 
       return data;

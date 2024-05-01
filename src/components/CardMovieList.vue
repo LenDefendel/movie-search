@@ -1,8 +1,19 @@
 <template>
   <div class="card-main">
-    <div v-if="isLoad">загрузка</div>
-    <CardMovie v-for="card in props.cards" :key="card.imdbID" :card="card" />
-    <div v-if="errorFind">фильм не найден</div>
+    <div v-if="isLoad">
+      <q-inner-loading
+        class="loading"
+        :showing="isLoad"
+        label="Please wait..."
+        label-style="font-size: 2em"
+      />
+    </div>
+    <div class="not-found-text" v-else-if="props.cards.length === 0">
+      <span> not found </span>
+    </div>
+    <template v-else>
+      <CardMovie v-for="card in props.cards" :key="card.imdbID" :card="card" />
+    </template>
   </div>
 </template>
 
@@ -16,7 +27,6 @@ import CardMovie from 'src/components/CardMovie.vue';
 const props = defineProps<{
   isLoad: boolean;
   cards: Array<IMovieShortInfo>;
-  errorFind: boolean;
 }>();
 //
 </script>
