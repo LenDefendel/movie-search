@@ -47,7 +47,8 @@ const props = defineProps<{
 }
 
 .not-found-text {
-  margin-top: calc(30px + 1.5vw); /* Минимум 30px + 1.2% от ширины экрана */
+  margin-top: calc(100px + 1.5vw); /* Минимум 30px + 1.2% от ширины экрана */
+  /* align-self: center; */
   justify-self: center;
   font-size: calc(14px + 1.5vw); /* Минимум 16px + 1.5% от ширины экрана */
   color: var(--grey-4);
