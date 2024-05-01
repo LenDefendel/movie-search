@@ -43,5 +43,14 @@ const props = defineProps<{
   flex-wrap: wrap;
   max-width: 100%;
   max-height: 100%;
+  position: relative;
+}
+
+.not-found-text {
+  margin-top: calc(30px + 1.5vw); /* Минимум 30px + 1.2% от ширины экрана */
+  justify-self: center;
+  font-size: calc(14px + 1.5vw); /* Минимум 16px + 1.5% от ширины экрана */
+  color: var(--grey-4);
+  position: absolute;
 }
 </style>
