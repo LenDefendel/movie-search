@@ -4,7 +4,7 @@
       dense
       item-aligned
       borderless
-      v-model="text"
+      v-model="searchText"
       input-class="search-input"
       :debounce="1_000"
       placeholder="Search movie"
@@ -14,12 +14,14 @@
       </template>
 
       <template #append>
-        <q-btn flat v-if="text" class="cursor-pointer" @click="text = ''">
+        <q-btn flat v-if="searchText" class="cursor-pointer" @click="searchText = ''">
           <q-icon name="clear" />
         </q-btn>
       </template>
     </q-input>
     <CardMovieList :is-load="isLoadMovie" :cards="movieList" />
+    <q-btn v-if="totalPage > 1" @click="backPage" label="back"></q-btn>
+    <q-btn v-if="totalPage > 1" @click="nextPage" label="next"></q-btn>
   </q-page>
 </template>
 
@@ -34,13 +36,16 @@ import { ref, watch } from 'vue';
 import CardMovieList from 'src/components/CardMovieList.vue';
 
 // Data
-const text = ref('');
+const searchText = ref('');
 const movieList = ref<IMovieShortInfo[]>([]);
 const isLoadMovie = ref(false);
+const currentPage = ref(1);
+const totalPage = ref(1);
+const itemOnPage = 10;
 
 // Watch
 watch(
-  text,
+  searchText,
   (newValue) => {
     void searchMovieByString(newValue); //
   },
@@ -48,11 +53,12 @@ watch(
 );
 
 // Methods
-async function searchMovieByString(id: string) {
+async function searchMovieByString(id: string, page?: number) {
   isLoadMovie.value = true;
   return await api
-    .searchMovieByString(id)
+    .searchMovieByString(id, page)
     .then((result) => {
+      totalPage.value = Number(result.totalResults) / itemOnPage;
       movieList.value = result.Search;
     })
     .catch((error) => {
@@ -65,6 +71,16 @@ async function searchMovieByString(id: string) {
     .finally(() => {
       isLoadMovie.value = false;
     });
+}
+
+function nextPage() {
+  currentPage.value++;
+  void searchMovieByString(searchText.value, currentPage.value);
+}
+
+function backPage() {
+  currentPage.value--;
+  void searchMovieByString(searchText.value, currentPage.value);
 }
 </script>
 
