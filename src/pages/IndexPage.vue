@@ -19,9 +19,17 @@
         </q-btn>
       </template>
     </q-input>
-    <CardMovieList :is-load="isLoadMovie" :cards="movieList" />
-    <q-btn v-if="totalPage > 1" @click="backPage" label="back"></q-btn>
-    <q-btn v-if="totalPage > 1" @click="nextPage" label="next"></q-btn>
+
+    <CardMovieList :is-load="isLoadMovie" :cards="movieList"> </CardMovieList>
+    <!--  -->
+    <div v-if="movieList.length > 0 && !isLoadMovie" class="pagination">
+      <q-btn flat v-if="totalPage > 1" @click="backPage">
+        <q-icon name="arrow_back_ios" />
+      </q-btn>
+      <q-btn flat v-if="totalPage > 1" @click="nextPage">
+        <q-icon name="arrow_forward_ios" />
+      </q-btn>
+    </div>
   </q-page>
 </template>
 
@@ -75,15 +83,29 @@ async function searchMovieByString(id: string, page?: number) {
 
 function nextPage() {
   currentPage.value++;
+  if (currentPage.value > totalPage.value) {
+    currentPage.value = 1;
+  }
   void searchMovieByString(searchText.value, currentPage.value);
 }
 
 function backPage() {
   currentPage.value--;
+  if (currentPage.value < 1) {
+    currentPage.value = totalPage.value;
+  }
   void searchMovieByString(searchText.value, currentPage.value);
 }
 </script>
 
 <style scoped>
-/*  */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: calc(60% + 2vw); /* Минимум 60px + 2% от ширины экрана */
+  align-items: start;
+  margin-bottom: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
 </style>
