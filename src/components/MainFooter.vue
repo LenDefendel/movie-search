@@ -1,7 +1,12 @@
 <template>
   <q-footer bordered class="bg-grey-9 text-white">
-    <q-tabs no-caps active-color="primary" indicator-color="transparent" class="text-white">
-      <q-tab name="your github" label="your github" />
+    <q-tabs no-caps indicator-color="transparent">
+      <a
+        class="github"
+        href="https://github.com/LenDefendel?tab=overview&from=2025-08-01&to=2025-08-01"
+      >
+        <q-tab name="your github" label="your github" />
+      </a>
     </q-tabs>
   </q-footer>
 </template>
@@ -11,5 +16,12 @@
 </script>
 
 <style scoped>
-/*  */
+.github {
+  text-decoration: none;
+  color: var(--grey-3);
+}
+
+.github:hover {
+  color: var(--white);
+}
 </style>
