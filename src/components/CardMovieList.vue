@@ -28,6 +28,7 @@ const props = defineProps<{
   isLoad: boolean;
   cards: Array<IMovieShortInfo>;
 }>();
+
 //
 </script>
 

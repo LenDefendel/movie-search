@@ -66,7 +66,7 @@ async function searchMovieByString(id: string, page?: number) {
   return await api
     .searchMovieByString(id, page)
     .then((result) => {
-      totalPage.value = Number(result.totalResults) / itemOnPage;
+      totalPage.value = Math.ceil(Number(result.totalResults) / itemOnPage);
       movieList.value = result.Search;
     })
     .catch((error) => {
