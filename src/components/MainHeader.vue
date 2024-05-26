@@ -1,18 +1,18 @@
 <template>
   <q-header>
     <div class="header">
-      <q-toolbar>
-        <q-toolbar-title>
-          <h5>MovieSearch</h5>
-          <q-toggle
-            size="md"
-            :model-value="$q.dark.isActive"
-            val="md"
-            label="theme"
-            @update:model-value="$q.dark.set($event)"
-          />
-        </q-toolbar-title>
-      </q-toolbar>
+      <div class="header-title"></div>
+      <h5>MovieSearch</h5>
+      <div class="toggle-theme">
+        <q-toggle
+          size="md"
+          color="white"
+          :model-value="$q.dark.isActive"
+          val="md"
+          label="theme"
+          @update:model-value="$q.dark.set($event)"
+        />
+      </div>
     </div>
   </q-header>
 </template>
@@ -25,12 +25,21 @@ const $q = useQuasar();
 <style scoped>
 .header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: nowrap;
+  width: 100%;
+  min-height: 60px;
+  max-height: 680px;
   background-color: var(--panel-background);
   color: var(--text-color);
 }
-/*  */
+
+.header-title {
+  width: 120px;
+}
+
+.toggle-theme {
+  width: 120px;
+}
 </style>
