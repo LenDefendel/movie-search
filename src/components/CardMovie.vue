@@ -19,7 +19,7 @@ const props = defineProps<{
 <style scoped>
 .card {
   text-decoration: none;
-  color: var(--black);
+  color: var(--text-color-base);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -27,7 +27,7 @@ const props = defineProps<{
   align-items: center;
   width: 320px;
   height: 500px;
-  border: 2px solid var(--grey-2);
+  border: 2px solid var(--border);
 }
 
 .title {

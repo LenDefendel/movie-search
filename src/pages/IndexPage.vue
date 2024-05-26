@@ -1,6 +1,7 @@
 <template>
-  <q-page>
+  <q-page class="main-page">
     <q-input
+      class="search"
       dense
       item-aligned
       borderless
@@ -82,4 +83,8 @@ async function searchMovieByString(id: string, page?: number) {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.main-page {
+  height: 100vh;
+}
+</style>

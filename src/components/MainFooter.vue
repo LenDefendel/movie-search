@@ -1,5 +1,5 @@
 <template>
-  <q-footer bordered class="bg-grey-9 text-white">
+  <q-footer bordered class="footer">
     <q-tabs no-caps indicator-color="transparent">
       <a
         class="github"
@@ -16,6 +16,10 @@
 </script>
 
 <style scoped>
+.footer {
+  background-color: var(--panel-background);
+}
+
 .github {
   text-decoration: none;
   color: var(--grey-3);
