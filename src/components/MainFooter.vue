@@ -1,5 +1,5 @@
 <template>
-  <q-footer bordered class="footer">
+  <q-footer class="footer">
     <q-tabs no-caps indicator-color="transparent">
       <a
         class="github"
