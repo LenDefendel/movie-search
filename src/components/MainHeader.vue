@@ -5,21 +5,37 @@
       <h5>MovieSearch</h5>
       <div class="toggle-theme">
         <q-toggle
+          toggle-indeterminate
           size="md"
           color="white"
-          :model-value="$q.dark.isActive"
+          v-model="model"
           val="md"
-          label="theme"
           @update:model-value="$q.dark.set($event)"
         />
+        <strong>{{ showScheme }}</strong>
       </div>
     </div>
   </q-header>
 </template>
 
 <script setup lang="ts">
-import { useQuasar } from 'quasar';
-const $q = useQuasar();
+import { computed } from 'vue';
+import { ref } from 'vue';
+
+// import { useQuasar } from 'quasar';
+// const $q = useQuasar();
+
+const model = ref<boolean | null>(null);
+
+const showScheme = computed(() => {
+  const map = {
+    true: 'dark',
+    false: 'light',
+    null: 'auto',
+  };
+
+  return map[`${model.value}`];
+});
 </script>
 
 <style scoped>
