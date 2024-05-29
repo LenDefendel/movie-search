@@ -3,39 +3,14 @@
     <div class="header">
       <div class="header-title"></div>
       <h5>MovieSearch</h5>
-      <div class="toggle-theme">
-        <q-toggle
-          toggle-indeterminate
-          size="md"
-          color="white"
-          v-model="model"
-          val="md"
-          @update:model-value="$q.dark.set($event)"
-        />
-        <strong>{{ showScheme }}</strong>
-      </div>
+      <ColorSchemeSwitcher class="toggle-theme" />
     </div>
   </q-header>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { ref } from 'vue';
-
-// import { useQuasar } from 'quasar';
-// const $q = useQuasar();
-
-const model = ref<boolean | null>(null);
-
-const showScheme = computed(() => {
-  const map = {
-    true: 'dark',
-    false: 'light',
-    null: 'auto',
-  };
-
-  return map[`${model.value}`];
-});
+// Components
+import ColorSchemeSwitcher from 'src/components/ColorSchemeSwitcher.vue';
 </script>
 
 <style scoped>

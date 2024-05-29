@@ -5,6 +5,7 @@
   border-radius: 4px;
   padding-left: 15px;
   padding-right: 15px;
+  // color: var(--white);
 }
 .q-field__inner:hover {
   border: 2px solid var(--hover-contrast);
@@ -17,10 +18,10 @@
 }
 
 .q-inner-loading {
-  color: var(--grey-4);
+  // color: var(--grey-4);
 }
 
-body.body--dark {
+body {
   background: var(--background-color);
 }
 
