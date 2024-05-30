@@ -1,4 +1,4 @@
-import type { httpLink, imdbID } from 'src/types';
+import type { httpLink, imdbID } from 'src/entities/types';
 
 export interface IMovieLongInfo {
   Title: string;

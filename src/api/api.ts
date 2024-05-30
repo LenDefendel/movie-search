@@ -1,6 +1,6 @@
 import axios from 'axios';
 import type { IMovieShortInfo } from 'src/entities/Movie';
-import type { imdbID } from 'src/types';
+import type { imdbID } from 'src/entities/types';
 
 const apikey = '771333f5';
 
