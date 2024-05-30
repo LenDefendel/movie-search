@@ -36,8 +36,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-
 const props = defineProps<{ totalPage: number }>();
 // const props = defineProps({ totalPage: { type: Number, required: true } });
 

@@ -12,8 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-
 type ColorSchemeOptions = 'dark' | 'light' | 'auto';
 
 // Data

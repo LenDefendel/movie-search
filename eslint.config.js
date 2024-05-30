@@ -4,6 +4,7 @@ import pluginVue from 'eslint-plugin-vue';
 import pluginQuasar from '@quasar/app-vite/eslint';
 import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript';
 import prettierSkipFormatting from '@vue/eslint-config-prettier/skip-formatting';
+import autoImport from './.auto-imports/eslintrc-auto-import.json' with { type: 'json' };
 
 export default defineConfigWithVueTs(
   {
@@ -52,6 +53,7 @@ export default defineConfigWithVueTs(
       globals: {
         ...globals.browser,
         ...globals.node, // SSR, Electron, config files
+        ...autoImport.globals,
         process: 'readonly', // process.env.*
         ga: 'readonly', // Google Analytics
         cordova: 'readonly',

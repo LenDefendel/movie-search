@@ -34,7 +34,6 @@
 <script setup lang="ts">
 import type { IMovieShortInfo } from 'src/entities/Movie';
 import * as api from 'src/api/api';
-import { ref, watch } from 'vue';
 
 // Components
 import CardMovieList from 'src/components/CardMovieList.vue';
