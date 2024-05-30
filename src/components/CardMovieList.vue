@@ -3,7 +3,7 @@
     <div v-if="isLoad">
       <q-inner-loading
         class="loading"
-        :showing="isLoad"
+        showing
         label="Please wait..."
         label-style="font-size: 2em"
       />
