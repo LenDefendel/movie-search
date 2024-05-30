@@ -19,10 +19,10 @@ const colorScheme = ref<ColorSchemeOptions>('auto');
 
 const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
 const lightStyles: NodeListOf<HTMLStyleElement> = document.querySelectorAll(
-  'link[rel=stylesheet][media*=prefers-color-scheme][media*=light]',
+  'style[media*=prefers-color-scheme][media*=light]',
 );
 const darkStyles: NodeListOf<HTMLStyleElement> = document.querySelectorAll(
-  'link[rel=stylesheet][media*=prefers-color-scheme][media*=dark]',
+  'style[media*=prefers-color-scheme][media*=dark]',
 );
 
 // Watch
