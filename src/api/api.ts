@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { IMovieShortInfo } from 'src/entities/Movie';
+import type { IMovieShortInfo, IMovieLongInfo } from 'src/entities/Movie';
 import type { imdbID } from 'src/entities/types';
 
 const apikey = '771333f5';
@@ -10,12 +10,12 @@ export interface IMovieSearchResponse {
   totalResults: string;
 }
 
-export interface IMovieSearchError {
+export interface IMovieApiError {
   Response: 'False';
   Error: string;
 }
 
-export async function getCard(id: imdbID) {
+export async function getMovie(id: imdbID) {
   return (
     axios
       .get('http://www.omdbapi.com/', {
@@ -24,9 +24,13 @@ export async function getCard(id: imdbID) {
           i: id,
         },
       })
-      .then((response) => {
-        // console.log(response);
-        return response;
+      .then((response) => response.data)
+      .then((data: IMovieLongInfo | IMovieApiError) => {
+        if (data.Response === 'False') {
+          throw new Error(data.Error, { cause: data.Error });
+        }
+
+        return data;
       })
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .catch((error) => {
@@ -50,7 +54,7 @@ export async function searchMovieByString(str: string, page: number = 1) {
       },
     })
     .then((response) => response.data)
-    .then((data: IMovieSearchResponse | IMovieSearchError) => {
+    .then((data: IMovieSearchResponse | IMovieApiError) => {
       if (data.Response === 'False') {
         throw new Error(data.Error, { cause: data.Error });
       }
