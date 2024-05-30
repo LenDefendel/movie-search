@@ -25,7 +25,7 @@ export interface IMovieLongInfo {
   BoxOffice: string;
   Production: string;
   Website: string;
-  Response: string;
+  Response: 'True';
 }
 
 export interface IMovieShortInfo {
