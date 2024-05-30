@@ -1,14 +1,18 @@
 <template>
-  <a class="card" href="#">
+  <router-link
+    class="card"
+    :to="{ name: RouterNames.MOVIE_PAGE, params: { imdbID: props.card.imdbID } }"
+  >
     <div class="title" :title="props.card.Title">
       <span>{{ props.card.Title }}</span>
     </div>
     <img :src="props.card.Poster" alt="" class="movie-img" />
     <span class="year">{{ props.card.Year }}</span>
-  </a>
+  </router-link>
 </template>
 
 <script setup lang="ts">
+import { RouterNames } from 'src/router/routerNames';
 import type { IMovieShortInfo } from 'src/entities/Movie';
 
 const props = defineProps<{
