@@ -1,12 +1,22 @@
 // Добавляем кастомные цвета в цветовую палитру фреймворка Quasar.
 // Теперь мы можем использовать эти цвета в разметке.
 
+:root {
+  --text-color-main: #eeeeee;
+  --text-hover: #fff;
+}
+
 @each $color-name
   in (
     //
     'background-color',
     'text-color-base',
     'text-color',
+    'text-color-main',
+    'text-color-search',
+    'text-color-search-rgb',
+    'text-hover',
+    'text-not-found-color',
     'panel-background',
     'border',
     'hover-contrast',
@@ -14,9 +24,7 @@
     'white',
     'grey-1',
     'grey-2',
-    'grey-3',
-    'grey-4',
-    'grey-5'
+    'grey-3'
   )
 {
   .text-#{$color-name} {

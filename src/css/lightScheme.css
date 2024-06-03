@@ -1,15 +1,11 @@
 :root {
   --background-color: #fff;
   --text-color-base: #000;
-  --text-color: #eeeeee;
+  --text-color: #141414;
+  --text-color-search: #666666;
+  --text-color-search-rgb: 102, 102, 102;
+  --text-not-found-color: #aaa;
   --panel-background: #424242;
   --border: #eeeeee;
   --hover-contrast: #cecece;
-  --black: #000;
-  --white: #fff;
-  --grey-1: #f7f7f7;
-  --grey-2: #eeeeee;
-  --grey-3: #cecece;
-  --grey-4: #aaa;
-  --grey-5: #666666;
 }

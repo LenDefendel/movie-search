@@ -17,15 +17,17 @@
 
 <style scoped>
 .footer {
+  display: flex;
+  justify-content: center;
   background-color: var(--panel-background);
 }
 
 .github {
   text-decoration: none;
-  color: var(--grey-3);
+  color: var(--text-color-main);
 }
 
 .github:hover {
-  color: var(--white);
+  color: var(--text-hover);
 }
 </style>

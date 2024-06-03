@@ -23,7 +23,7 @@ import ColorSchemeSwitcher from 'src/components/ColorSchemeSwitcher.vue';
   min-height: 60px;
   max-height: 680px;
   background-color: var(--panel-background);
-  color: var(--text-color);
+  color: var(--text-color-main);
 }
 
 .header-title {

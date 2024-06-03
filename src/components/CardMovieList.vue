@@ -50,7 +50,7 @@ const props = defineProps<{
   margin-top: calc(100px + 1.5vw); /* Минимум 30px + 1.2% от ширины экрана */
   justify-self: center;
   font-size: calc(14px + 1.5vw); /* Минимум 16px + 1.5% от ширины экрана */
-  color: var(--grey-4);
+  color: var(--text-not-found-color);
   position: absolute;
 }
 </style>

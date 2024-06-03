@@ -2,14 +2,10 @@
   --background-color: #333333;
   --text-color-base: #fff;
   --text-color: #eeeeee;
+  --text-color-search: #cecece;
+  --text-color-search-rgb: 206, 206, 206;
+  --text-not-found-color: #aaa;
   --panel-background: #424242;
   --border: #535353;
   --hover-contrast: #aaa;
-  --black: #000;
-  --white: #fff;
-  --grey-1: #f7f7f7;
-  --grey-2: #eeeeee;
-  --grey-3: #cecece;
-  --grey-4: #aaa;
-  --grey-5: #666666;
 }

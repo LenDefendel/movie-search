@@ -1,11 +1,12 @@
 // Input search
-
 .q-field__inner {
   border: 2px solid var(--border);
   border-radius: 4px;
   padding-left: 15px;
   padding-right: 15px;
-  // color: var(--white);
+  color: aqua;
+  // margin-left: 20px;
+  // margin-right: 20px;
 }
 .q-field__inner:hover {
   border: 2px solid var(--hover-contrast);
@@ -17,9 +18,14 @@
   background-color: transparent !important;
 }
 
-.q-inner-loading {
-  // color: var(--grey-4);
+// Icon search
+.q-field__marginal {
+  color: rgba(var(--text-color-search-rgb), 0.7);
 }
+
+// .q-page-container {
+//   padding-top: 0px !important;
+// }
 
 // Button github
 

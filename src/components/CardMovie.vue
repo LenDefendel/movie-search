@@ -34,6 +34,10 @@ const props = defineProps<{
   border: 2px solid var(--border);
 }
 
+.card:hover {
+  border-color: var(--hover-contrast);
+}
+
 .title {
   padding: 10px;
   font-size: 16px;

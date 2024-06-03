@@ -128,7 +128,6 @@ function toPage(pageIndex: number) {
 .pagination {
   display: flex;
   justify-content: center;
-  /* gap: calc(10% + 2vw); */
   align-items: start;
   margin-bottom: 40px;
   margin-left: 40px;
@@ -141,7 +140,7 @@ function toPage(pageIndex: number) {
   }
 
   &.pagination-btn--current {
-    border: 1px solid var(--black);
+    /* border: 1px solid var(--black); */
   }
 }
 </style>
