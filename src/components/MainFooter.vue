@@ -1,7 +1,7 @@
 <template>
   <q-footer class="footer">
     <q-btn
-      class="github"
+      class="to-github"
       label="your github"
       href="https://github.com/LenDefendel?tab=overview&from=2025-08-01&to=2025-08-01"
       flat
@@ -25,12 +25,13 @@
   height: 50px;
 }
 
-.github {
-  text-decoration: none;
-  color: var(--text-color-main);
-}
+.to-github {
+  &:hover {
+    color: var(--text-hover);
+  }
 
-.github:hover {
-  color: var(--text-hover);
+  &:deep(.q-focus-helper) {
+    display: none;
+  }
 }
 </style>

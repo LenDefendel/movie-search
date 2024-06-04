@@ -15,7 +15,7 @@
       </template>
 
       <template #append>
-        <q-btn flat v-if="searchText" class="cursor-pointer" @click="searchText = ''">
+        <q-btn flat v-if="searchText" class="clear-search" @click="searchText = ''">
           <q-icon name="clear" />
         </q-btn>
       </template>
@@ -83,5 +83,14 @@ async function searchMovieByString(id: string, page?: number) {
 </script>
 
 <style scoped>
+.clear-search {
+  &:hover {
+    color: var(--text-hover);
+  }
+
+  &:deep(.q-focus-helper) {
+    display: none;
+  }
+}
 /*  */
 </style>
