@@ -59,7 +59,7 @@ const numberOfPagesButtons = computed<Array<number>>(() => {
 
   // [ 1, 2, 3, 4, 5, null, 80 ]
   if (currentPage.value <= 5) {
-    console.log('if 2');
+    // console.log('if 2');
     const result = new Array(5 + 2);
 
     for (let i = 0; i < 5; i++) {
@@ -74,8 +74,8 @@ const numberOfPagesButtons = computed<Array<number>>(() => {
 
   // [ 1, null, 76, 77, 78, 79, 80 ]
   if (currentPage.value > props.totalPage - 5) {
-    console.log('if 3');
-    console.log(currentPage.value);
+    // console.log('if 3');
+    // console.log(currentPage.value);
     const result = new Array(5 + 2);
 
     for (let i = 2; i < result.length; i++) {
@@ -90,7 +90,7 @@ const numberOfPagesButtons = computed<Array<number>>(() => {
 
   // [ 1, null, 4, 5, 6, 7, 8, null, 80 ]
   {
-    console.log('if 4');
+    // console.log('if 4');
     const result = new Array(5 + 4);
     result[0] = 1;
     result[1] = NaN;
@@ -100,7 +100,7 @@ const numberOfPagesButtons = computed<Array<number>>(() => {
     for (let i = -3; i < 2; i++) {
       result[5 + i] = currentPage.value + 1 + i;
     }
-    console.log(result[4]);
+    // console.log(result[4]);
 
     return result;
   }
