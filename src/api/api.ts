@@ -65,3 +65,30 @@ export async function searchMovieByString(str: string, page: number = 1) {
       return Promise.reject(error);
     });
 }
+
+// export async function searchMovieByString2(
+//   str: string,
+//   offset: number = 0,
+//   quantityElements: number = 10,
+// ) {
+//   const offsetPage = Math.trunc(offset / 10);
+//   const offsetElements = Math.trunc(offset % 10);
+//   const quantityPage = Math.ceil(quantityElements / 10);
+//   const responses = [];
+
+//   for (let i = offsetPage; i <= quantityPage; i++) {
+//     responses.push(await searchMovieByString(str, offsetPage + i));
+//     console.log(str);
+//   }
+
+//   const result = responses.at(-1);
+//   if (result) {
+//     const allSearch = responses.map((response) => response.Search).flat();
+//     console.log({ offsetElements, quantityElements });
+//     result.Search = allSearch.slice(offsetElements);
+//     console.log(result);
+//     return result;
+//   }
+// }
+
+// searchMovieByString2('', 22, 25);
