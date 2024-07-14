@@ -21,13 +21,9 @@
       </template>
     </q-input>
 
-    <CardMovieList :is-load="isLoadMovie" :cards="movieList"> </CardMovieList>
-    <PaginationOnPage
-      v-if="movieList.length > 0 && !isLoadMovie"
-      v-model="currentPage"
-      :total-page
-    />
-    <!--  -->
+    <PaginationOnPage v-if="movieList.length > 0 && !isLoadMovie" v-model="lastPage" :total-page />
+    <CardMovieList :is-load="isLoadMovie" :cards="movieList" />
+    <div class="sentinel" ref="sentinel" />
   </q-page>
 </template>
 
@@ -45,7 +41,7 @@ const movieList = ref<IMovieShortInfo[]>([]);
 const isLoadMovie = ref(false);
 const totalPage = ref(1);
 const itemOnPage = 10;
-const currentPage = ref(1);
+const lastPage = ref(1);
 
 // Watch
 watch(
@@ -56,18 +52,26 @@ watch(
   { immediate: true },
 );
 
-watch(currentPage, (newValue) => {
+watch(lastPage, (newValue) => {
   void searchMovieByString(searchText.value, newValue);
+});
+
+const sentinel = useTemplateRef('sentinel');
+
+onMounted(() => {
+  initializeObserver();
 });
 
 // Methods
 async function searchMovieByString(id: string, page?: number) {
-  isLoadMovie.value = true;
+  // isLoadMovie.value = true;
   return await api
     .searchMovieByString(id, page)
     .then((result) => {
       totalPage.value = Math.ceil(Number(result.totalResults) / itemOnPage);
-      movieList.value = result.Search;
+      // movieList.value = result.Search;
+      movieList.value.push(...result.Search);
+      console.log(movieList.value);
     })
     .catch((error) => {
       if (error.cause === 'Movie not found!') {
@@ -79,6 +83,27 @@ async function searchMovieByString(id: string, page?: number) {
     .finally(() => {
       isLoadMovie.value = false;
     });
+}
+
+function initializeObserver() {
+  const options: IntersectionObserverInit = {
+    // root: null,
+    rootMargin: '-25px 0px 45px 0px',
+    threshold: 1,
+  };
+
+  if (sentinel.value) {
+    const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          lastPage.value++;
+          console.log(1);
+        }
+      });
+    }, options);
+
+    observer.observe(sentinel.value);
+  }
 }
 </script>
 
@@ -92,5 +117,10 @@ async function searchMovieByString(id: string, page?: number) {
     display: none;
   }
 }
-/*  */
+
+/* .sentinel {
+  width: 100%;
+  height: 1px;
+  visibility: hidden;
+} */
 </style>
