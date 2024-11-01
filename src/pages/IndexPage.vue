@@ -34,6 +34,7 @@ import * as api from 'src/api/api';
 // Components
 import CardMovieList from 'src/components/CardMovieList.vue';
 // import PaginationOnPage from 'src/components/PaginationOnPage.vue';
+//
 
 // Data
 const searchText = ref('');
